@@ -281,49 +281,7 @@ function Header() {
           }`}
         >
           <div className="col-lg-6  d-md-none d-lg-block   d-none   ">
-            <Nav as="ul">
-              <Navbar.Brand href="/">
-                <Image
-                  src={Logo}
-                  width="100"
-                  height="150"
-                  // className="d-inline-block align-top"
-                  alt="MGA Booking Logo"
-                />
-                {/* {' MGA Booking'} */}
-              </Navbar.Brand>
-              {navLink.map(({ link, name }) => (
-                <Nav.Link
-                  as="span"
-                  key={name}
-                  className={`${
-                    router?.pathname === link
-                      ? "border-bottom border-3 border-warning"
-                      : ""
-                  } mx-2 `}
-                >
-                  <Link href={link} className=" text-uppercase ">
-                    {name}
-                  </Link>
-                </Nav.Link>
-              ))}
-
-              {/* <Nav.Link as="span" className="text-nowrap">
-                <Link href={"/about"}>ABOUT US</Link>
-              </Nav.Link>
-              <Nav.Link as="span" className="text-nowrap">
-                <Link href={"/services"}>SERVICES</Link>
-              </Nav.Link>
-              <Nav.Link as="span" className="text-nowrap">
-                <Link href={"/cases"}>CASES</Link>
-              </Nav.Link>
-              <Nav.Link as="span" className="text-nowrap">
-                <Link href={"/our-business"}>OUR BUSINESS</Link>
-              </Nav.Link>
-              <Nav.Link as="span" className="text-nowrap">
-                <Link href={"/contact"}>CONTACT US</Link>
-              </Nav.Link> */}
-            </Nav>
+           
           </div>
 
           <div className=" d-md-none col-sm-3  col-3">
@@ -379,22 +337,10 @@ function Header() {
                       ))}
                     </Nav>
                   </div>
-
-                  {/* <Nav.Link as="span">
-                    <Link href={"/#"}>
-                      {" "}
-                      <div className="d-flex justify-content-between gap-3 align-items-center    ">
-                        <BsFillTelephoneFill
-                          className="cus-color-primary d-sm-none d-xs-none d-md-none d-lg-block"
-                          size={18}
-                        />{" "}
-                        <span> Helpline: 0413 749 479</span>
-                      </div>
-                    </Link>
-                  </Nav.Link> */}
-                  <Nav.Link as="span" className="text-nowrap ">
+ 
+                  {/* <Nav.Link as="span" className="text-nowrap ">
                     <Link
-                      href={"/about"}
+                       href={"/about"}
                       className=" px-4 py-2  rounded-lg cus-b-r-5 cus-btn"
                     >
                       About Us
@@ -424,7 +370,7 @@ function Header() {
                     >
                       MGA Booking
                     </Link>
-                  </Nav.Link>
+                  </Nav.Link> */}
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

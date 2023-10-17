@@ -36,7 +36,7 @@ const Footer = () => {
               <FooterItem
                 icon={<BsFillTelephoneFill size={22} />}
                 textOne="Given Us A Call"
-                textTwo="(+880)32-883-9382"
+                textTwo="(+880) 1749-160165"
               />
             </div>
           </Col>
@@ -46,7 +46,7 @@ const Footer = () => {
               <FooterItem
                 icon={<FaEnvelope size={22} />}
                 textOne="Send Us A Message"
-                textTwo="hasan@trustca.com.au"
+                textTwo="mahmudul.4918@gmail.com"
               />
             </div>
           </Col>
@@ -102,7 +102,7 @@ const Footer = () => {
           </Col>
           <Col sm={12} md={2}>
             <h1 className="fs-5 fw-bold cus-color-primary">Quick Link</h1>
-            <ul className="demo ">
+            {/* <ul className="demo ">
               <li>
                 <Link href="/about">About Us</Link>
               </li>
@@ -121,7 +121,7 @@ const Footer = () => {
               <li>
                 <a href="/case">Case</a>
               </li>
-            </ul>
+            </ul> */}
           </Col>
           <Col sm={12} md={3}>
             <h1 className="fs-5 fw-bold cus-color-primary">Useful Links</h1>

@@ -3,6 +3,8 @@ import * as XLSX from "xlsx";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export default function ExamForm() {
+  
+
   const [teacherName, setTeacherName] = useState(); // Add teacherName state
   const [numStudents, setNumStudents] = useState(1);
   const [examName, setExamName] = useState("CT");
@@ -16,11 +18,11 @@ export default function ExamForm() {
 
   // validation
   // const [teacherNameValid, setTeacherNameValid] = useState(true);
-  const [numStudentsValid, setNumStudentsValid] = useState(true);
-  const [classValueValid, setClassValueValid] = useState(true);
-  const [sectionValid, setSectionValid] = useState(true);
-  const [numTestsValid, setNumTestsValid] = useState(true);
-  const [examNameValid, setExamNameValid] = useState(true);
+  const [numStudentsValid, setNumStudentsValid] = useState(false);
+  const [classValueValid, setClassValueValid] =useState(false);
+  const [sectionValid, setSectionValid] = useState(false);
+  const [numTestsValid, setNumTestsValid] = useState(false);
+  const [examNameValid, setExamNameValid] = useState(false);
   // const handleChange = (event) => {
   //   const { name, value } = event.target;
   //   if (name === "teacherName") setTeacherName(value);
@@ -89,7 +91,9 @@ export default function ExamForm() {
   
   const validateFields = () => {
     if (numStudentsValid && classValueValid && sectionValid && numTestsValid && examNameValid) {
+      
       return true;
+       
     }
     showToastError();
     return false;
@@ -502,55 +506,54 @@ export default function ExamForm() {
         >
           Download Excel
         </button>
-        {numStudentsValid && classValueValid && sectionValid && numTestsValid && examNameValid ? (
-          <table className="table table-responsive mt-4 table-striped mb-0">
-            <thead>
-              <tr>
-                <th>Roll</th>
-                <th>{examName}</th>
-                {averageMarks.length > 0 && (
-                  <th className="text-center">Average Mark</th>
-                )}
-                {averageMarks.length > 0 && (
-                  <th className="text-center">Rounded Mark</th>
-                )}
-              </tr>
-            </thead>
-            <tbody>
-              {studentData.map((student, index) => (
-                <tr key={index}>
-                  <td>{student.Roll}</td>
-                  {Object.keys(student.examMarks).map((exam, i) => (
-                    <td key={i}>
-                      <input
-                        type="number"
-                        name={exam}
-                        placeholder={`${examName}-${i + 1}`}
-                        value={student.examMarks[exam]}
-                        onChange={(e) =>
-                          handleExamMarkChange(index, exam, e.target.value)
-                        }
-                        className="form-control"
-                      />
-                    </td>
-                  ))}
-                  {averageMarks.length > 0 && (
-                    <td className="mt-2 fs-6 fw-bolder text-center bg-lite text-dark">
-                      {student.averageMark || ""}
-                    </td>
-                  )}
-                  {averageMarks.length > 0 && (
-                    <td className="mt-2 fs-6 fw-bolder text-center bg-warning text-white">
-                      {student.finalMark || ""}
-                    </td>
-                  )}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          ""
+        {numStudents && examName && classValue && section && numTests && (
+  <table className="table table-responsive mt-4 table-striped mb-0">
+    <thead>
+      <tr>
+        <th>Roll</th>
+        <th>{examName}</th>
+        {averageMarks.length > 0 && (
+          <th className="text-center">Average Mark</th>
         )}
+        {averageMarks.length > 0 && (
+          <th className="text-center">Rounded Mark</th>
+        )}
+      </tr>
+    </thead>
+    <tbody>
+      {studentData.map((student, index) => (
+        <tr key={index}>
+          <td>{student.Roll}</td>
+          {Object.keys(student.examMarks).map((exam, i) => (
+            <td key={i}>
+              <input
+                type="number"
+                name={exam}
+                placeholder={`${examName}-${i + 1}`}
+                value={student.examMarks[exam]}
+                onChange={(e) =>
+                  handleExamMarkChange(index, exam, e.target.value)
+                }
+                className="form-control"
+              />
+            </td>
+          ))}
+          {averageMarks.length > 0 && (
+            <td className="mt-2 fs-6 fw-bolder text-center bg-lite text-dark">
+              {student.averageMark || ""}
+            </td>
+          )}
+          {averageMarks.length > 0 && (
+            <td className="mt-2 fs-6 fw-bolder text-center bg-warning text-white">
+              {student.finalMark || ""}
+            </td>
+          )}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)}
+
       </form>
     </div>
   );
